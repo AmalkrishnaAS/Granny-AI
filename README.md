@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Granny-AI
 
-## Getting Started
+AI Bedtime story generator using Gemini 2.0 and Stable diffusion
 
-First, run the development server:
+## Tech Stack
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- Next JS 14 - App Router
+- shadcn/ui (UI components)
+- Convex (Database / Backend)
+- Gemini 2.0 (Content Generation)
+- CompVis/stable-diffusion-v1-4 (Image Generation)
+- React Icons (Icons)
+- Tailwind CSS (Styling)
+- Clerk (Authentication and User Management)
+
+## Features
+
+- [x] Authentication
+- [x] CRUD Operations
+- [x] Content Generation
+- [x] Cover Image Generation
+- [ ] Fork Story
+- [ ] Customise Prompts from existing stories to generate new ones
+- [ ] Dark Mode
+- [ ] Vector Similarity based Recomendations
+- [ ] Text to Speech
+
+## Environment Variables
+
+Set the following variables in your `.env` file
+
+```python
+NEXT_PUBLIC_GEMINI_API_KEY=
+NEXT_PUBLIC_HUGGINGFACE_API_KEY=
+
+# Deployment used by `npx convex dev`
+CONVEX_DEPLOYMENT=d
+NEXT_PUBLIC_CONVEX_URL=
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
+CLERK_SECRET_KEY=
+
+NEXT_PUBLIC_CLERK_SIGN_IN_URL=
+NEXT_PUBLIC_CLERK_SIGN_UP_URL=
+CLERK_WEBHOOK_SECRET
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Run in Local
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Frontend
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+bun install
+```
 
-## Learn More
+### Backend (Convex)
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+bunx convex dev
+bunx convex dashboard #to open the WebUI
+```
