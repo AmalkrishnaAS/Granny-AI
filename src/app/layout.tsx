@@ -1,7 +1,14 @@
+
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import "./globals.css";
+import { Authenticated } from "convex/react"
 
+import "./globals.css";
+import AuthProvider from "@/components/auth-provider";
+import { NavigationMenuDemo } from "@/components/Navbar";
+import { UserButton } from "@clerk/nextjs";
+import { Separator } from "@/components/ui/separator";
+import {Toaster} from "@/components/ui/sonner"
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -25,11 +32,24 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <AuthProvider>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <div
+        
+        className="">
+            <NavigationMenuDemo />      
+            
+          </div>
+          <Separator />
+
+       
+       
         {children}
+        <Toaster />
       </body>
+      </AuthProvider>
     </html>
   );
 }
